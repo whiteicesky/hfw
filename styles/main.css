@@ -1,0 +1,1030 @@
+/* GLOBAL SETTINGS */
+* {margin: 0; padding: 0;}
+@font-face {
+    font-family: "TTNorms";
+    src: url("../fonts/TTNorms.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "TTNorms", sans-serif;
+}
+
+button {
+    background-color: #000000; 
+    color: whitesmoke;
+    border: none; 
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer; 
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: rgb(220, 220, 220);
+}
+/* HEADER */
+header {
+    width: 100%; 
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+#main-nav {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    background-color: whitesmoke;
+    height: 80px;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-holder {
+    order: 1;
+}
+.nav-right {
+    order: 2;
+}
+.nav-right {
+    gap: 1rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+
+}
+
+.notification-container {
+    order: 1;
+}
+.burger  {
+    order:2;
+}
+.logo-holder{
+    min-height: 50px;
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float:left;
+    padding-left: 12px;
+    text-align: left;
+}
+
+.logo-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+}
+
+/* BELL */
+.notification-container {
+    position: relative;
+    display: flex;
+  }
+
+  .notification-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .notification-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .notification-list {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; 
+    z-index: 10;
+  }
+
+  .notification-list.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; 
+  }
+
+  .notification-header {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+
+  .notification-item {
+    padding: 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .notification-item:last-child {
+    border-bottom: none;
+  }
+
+  .notification-item:hover {
+    background-color: #333;
+  }
+
+  .notification-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+/* BURGER MENU */
+.burger {
+    z-index: 1001; 
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    transition: all 0.3s ease;
+}
+
+.burger.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-container {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .menu-container.active {
+    transform: translateX(0); 
+  }
+
+  .menu-list {
+    padding: 30px;
+    margin-top: 3rem;
+  }
+
+  .menu-list a {
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    width: auto;
+  }
+  
+  .menu-list a:hover {
+    background-color: #eee;
+    width: auto;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+
+
+/* COVER */
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url(../images/rickowens.gif);
+    max-width: 70%;
+    height: 10px;
+    background-position:center;
+    background-size: cover;
+    color: black;
+    padding: 20%;
+}
+
+.cover-dimmer {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    background: rgba(200, 200, 200,0.5);
+    text-align: center;
+    padding: 30px;
+    transition: opacity 0.3s; 
+    opacity: 0;
+}
+.cover:hover .cover-dimmer{
+    opacity: 1;
+    transition: opacity 0.3s; 
+}
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2px;
+}
+
+/* BRANDS */
+.brands {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+h2 {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.subheader {
+    padding-bottom: 2rem;
+}
+
+.brand {
+    width: 100%;
+    margin: 1%;
+    padding: 1%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; 
+}
+
+.img-brand {
+    max-width: 70%;
+    height: auto;
+}
+
+
+.container-a {
+    left: 10%;
+    width: 90%;
+}
+
+.Buy-btn {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 10rem;
+}
+.brand:hover .Buy-btn {
+    opacity: 1;
+    transition: opacity .3s;
+    transition: background-color 0.3s;
+
+}
+
+.brand-description {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%); 
+    padding: 10px 20px;
+    width: 80%;
+}
+.brand:hover .brand-description {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.Name {
+    margin-top: 0.5rem;
+    opacity: 0;
+}
+
+.brand:hover .Name {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.brand::after {
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 2px; 
+    background-color: black;
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+}
+
+.brand:hover::after {
+    transform: scaleX(1); 
+}
+
+.brand::before {
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 2px; 
+    background-color: black;
+    transform: scaleX(0); 
+    transition: transform 0.3s ease; 
+}
+
+.brand:hover::before {
+    transform: scaleX(1); 
+}
+
+/* EVENTS */
+.events {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 92%;
+    background-color: black;
+    margin-top: 2rem;
+    padding: 5rem 1.5rem 4rem 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    gap: 4rem;
+}
+
+.h2event {
+    position: absolute;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: whitesmoke;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.event {
+    position: relative;
+    color: whitesmoke;
+    width: 30%;
+    max-width: 300px;
+    aspect-ratio: 2 / 3;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-event {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(201, 201, 201, 0.9) 0%, rgba(128, 128, 128, 0.3) 90%);
+    z-index: 2;
+    opacity: 0; /* Постоянный градиент */
+    pointer-events: none;
+    transition: opacity 0.3 ease; /* Убираем мерцание */
+}
+.event:hover::before {
+    opacity: 1; /* Показываем градиент при наведении */
+}
+.event:hover .img-event {
+    transform: scale(1.1);
+    filter: brightness(0.5); /* Затемнение при наведении */
+}
+
+.event::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5));
+    background-size: 200% 200%;
+    z-index: 3;
+    opacity: 0; /* По умолчанию лучей нет */
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    animation: none;
+}
+
+.event:hover::after {
+    opacity: 1;
+    animation: glow-border 3s ease-in-out infinite; /* Включаем анимацию */
+}
+
+@keyframes glow-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%; /* Смещение к центру */
+    }
+    100% {
+        background-position: 0% 50%; /* Завершение цикла */
+    }
+}
+
+.event-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+    opacity: 0; /* Скрыто по умолчанию */
+    transition: opacity 0.3s ease;
+    z-index: 4;
+}
+
+.event:hover .event-info {
+    opacity: 1; /* Показываем информацию при наведении */
+}
+
+.subheader2 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Размытие остальных карточек при наведении */
+.events:hover .event {
+    filter: blur(2px); /* Остальные карточки размываются */
+}
+
+.events:hover .event:hover {
+    filter: none; /* Активная карточка без размытия */
+    z-index: 5; /* Поднимаем активную карточку над остальными */
+}
+/* NEWSLETTER */
+.newsletter {
+    height: 135px;
+    width: 92%;
+    margin-bottom: 1rem;
+    background-color: whitesmoke;
+    background-size: cover;
+    color:black;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 100%;
+    display: inline-block;
+}
+#notification {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed; 
+    top: 100px; 
+    right: 20px;
+    background-color: black; 
+    color: whitesmoke; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    z-index: 1000; 
+    transition: opacity 0.5s ease, visibility 0.5s ease; 
+}
+h4 {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%; 
+    padding: 10px;
+    border: 0px solid #ddd; 
+    border-radius: 5px; 
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.sub-btn {
+    padding: 10px;
+    width: 100%; 
+}
+
+
+/* FOOTER */
+footer {
+    background-color: rgba(200, 200, 200, 0.5);
+    padding: 3rem 0 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex; 
+    justify-content: space-between;
+    padding: 0; 
+    margin-left: 10%;
+}
+
+.footer-section {
+    width: calc(80% - 20px); 
+    text-align: left; 
+}
+
+#contacts {
+    margin-left: 10%; 
+}
+
+#social {
+    margin-right: 10%; 
+    padding-left: 20%;
+}
+
+.bigger {
+    font-size: 1.3rem;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: rgb(100, 100, 100);
+}
+
+h5 {
+    margin-top: 3rem; 
+    color: rgb(100, 100, 100);
+}
+
+/* Дополнительные стили для выравнивания */
+.footer-section span {
+    display: block; 
+    margin-bottom: 0.5rem; 
+}
+
+.footer-section a {
+    display: block; 
+    margin-bottom: 0.2rem; 
+}
+
+
+/* MEDIA */
+@media screen and (min-width: 769px) and (max-width: 1024px)
+{
+    .logo-img {
+        max-width: 70%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 75px;
+    }
+
+    .notification-list {
+        top: 40px;
+    }
+    
+    .menu-container a{
+        font-size: 1rem;
+    }
+    
+    .line {
+        height: 4px;
+    }
+    .menu-list {
+        margin-top: 2rem;
+    }
+
+
+    .cover-dimmer {
+        display: none;
+    }
+    .cover-dimmer {
+        background-color: none;
+    }
+    .cover  {
+        height: 10px;
+    }
+
+
+    .brands h2{
+        font-size: 1.3rem
+    }
+    .subheader {
+        font-size: 0.8rem
+    }
+    .brands {
+        font-size: 1rem;
+    }
+    .Buy-btn{
+        font-size: 0.7rem;
+        width: 150px;
+    }
+
+
+    .h2event {
+        font-size: 1.5rem;
+        top: 0.5rem;
+    }
+    .subheader2 {
+        font-size: 0.8rem;
+    }
+
+
+    .newsletter h4 {
+        font-size: 0.8rem;
+    }
+    .form input[type="email"] {
+        font-size: 0.8rem;
+    }
+    .sub-btn {
+        font-size: 0.7rem;
+    }
+    #notification {
+        font-size: 0.9rem;
+        top: 90px;
+        right: 15px;
+        padding: 5px 15px; 
+    }
+
+    .bigger {
+        font-size: 1.2rem;
+    }
+    .footer-section {
+        font-size: 0.8rem;
+    }
+    h5 {
+        font-size: 0.7rem;
+    }
+    .events {
+        gap: 3rem;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    .logo-img {
+        max-width: 65%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 70px;
+    }
+
+    .notification-list {
+        top: 40px;
+        width: 200px;
+    }
+    .notification-header {
+        font-size: 14px;
+    }
+    .notification-item {
+        font-size: 12px;
+    }
+    .menu-container a{
+        font-size: 1rem;
+    }
+    
+    .line {
+        height: 4px;
+    }
+    .menu-list {
+        margin-top: 2rem;
+    }
+
+
+    .cover-dimmer {
+        display: none;
+    }
+    .cover-dimmer {
+        background-color: none;
+    }
+    .cover  {
+        height: 10px;
+    }
+
+
+    .brands h2{
+        font-size: 1.3rem
+    }
+    .subheader {
+        font-size: 0.8rem
+    }
+    .brands {
+        font-size: 1rem;
+    }
+    .Buy-btn{
+        font-size: 0.7rem;
+        width: 150px;
+    }
+
+
+    .h2event {
+        font-size: 1.5rem;
+        top: 0.5rem;
+    }
+    .subheader2 {
+        font-size: 0.8rem;
+    }
+
+
+    .newsletter h4 {
+        font-size: 0.8rem;
+    }
+    .form input[type="email"] {
+        font-size: 0.8rem;
+    }
+    .sub-btn {
+        font-size: 0.7rem;
+    }
+    #notification {
+        font-size: 0.9rem;
+        top: 90px;
+        right: 15px;
+        padding: 5px 15px; 
+    }
+
+    .bigger {
+        font-size: 1.2rem;
+    }
+    .footer-section {
+        font-size: 0.8rem;
+    }
+    h5 {
+        font-size: 0.7rem;
+    }
+    .events {
+        gap: 3rem;
+    }
+}
+@media(max-width: 600px) {
+    .logo-img {
+        max-width: 60%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 65px;
+    }
+
+    .notification-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .notification-list {
+        top: 30px;
+        width: 200px;
+    }
+    .notification-header {
+        font-size: 14px;
+    }
+    .notification-item {
+        font-size: 12px;
+    }
+    .menu-container a{
+        font-size: 0.8rem;
+    }
+    .burger {
+        width: 25px; 
+        height: 15px;
+    }
+
+    .line {
+        height: 3px;
+    }
+    .burger.active .line:nth-child(1) {
+        transform: translateY(4.5px) rotate(45deg);
+    }
+    .menu-list {
+        margin-top: 1.5rem;
+    }
+
+    .cover-dimmer {
+        display: none;
+    }
+    .cover-dimmer {
+        background-color: none;
+    }
+    .cover  {
+        height: 10px;
+    }
+
+    .events {
+        gap: 2rem;
+    }
+
+    .brands h2{
+        font-size: 1.2rem
+    }
+    .subheader {
+        font-size: 0.6rem
+    }
+    .brands {
+        font-size: 0.8rem;
+    }
+    .Buy-btn{
+        font-size: 0.5rem;
+        width: 100px;
+    }
+
+
+    .h2event {
+        font-size: 1.4rem;
+    }
+    .subheader2 {
+        font-size: 0.7rem;
+    }
+
+
+    .newsletter h4 {
+        font-size: 0.7rem;
+    }
+    .form input[type="email"] {
+        font-size: 0.7rem;
+    }
+    .sub-btn {
+        font-size: 0.6rem;
+    }
+    #notification {
+        top: 75px; 
+        right: 10px;
+        padding: 4px 13px; 
+    }
+
+    .bigger {
+        font-size: 1rem;
+    }
+    .footer-section {
+        font-size: 0.7rem;
+    }
+    h5 {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    
+    .logo-img {
+        max-width: 50%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 55px;
+    }
+
+    .notification-icon {
+        width: 27px;
+        height: 27px;
+    }
+    .notification-list {
+        top: 27px;
+        width: 150px;
+    }
+    .notification-header {
+        font-size: 12px;
+    }
+    .notification-item {
+        font-size: 10px;
+    }
+    .menu-container a{
+        font-size: 0.7rem;
+    }
+    .burger {
+        width: 25px;
+        height: 15px;
+    }
+    .menu-list {
+        margin-top: 1rem;
+    }
+
+    
+    .events {
+        gap: 1.5rem;
+    }
+    .cover-dimmer {
+        display: none;
+    }
+    .cover-dimmer {
+        background-color: none;
+    }
+    .cover  {
+        height: 10px;
+    }
+    .brands h2{
+        font-size: 1rem
+        
+    }
+    .subheader {
+        font-size: 0.5rem
+    }
+    .brand-description {
+        display: none;
+    }
+    .brands {
+        font-size: 0.6rem;
+    }
+    .Buy-btn{
+        font-size: 0.4rem;
+        width: 70px;
+    }
+
+    .h2event {
+        font-size: 1.2rem;
+        top: 1rem;
+    }
+    .subheader2 {
+        font-size: 0.5rem;
+    }
+
+
+    .newsletter h4 {
+        font-size: 0.6rem;
+    }
+    .form input[type="email"] {
+        font-size: 0.6rem;
+    }
+    .sub-btn {
+        font-size: 0.5rem;
+    }
+    #notification {
+        top: 70px;
+        right: 5px;
+        padding: 3px 10px;
+    }
+
+    .bigger {
+        font-size: 0.8rem;
+    }
+    .footer-section {
+        font-size: 0.5rem;
+    }
+    h5 {
+        font-size: 0.5rem;
+    }
+}
+
+
+

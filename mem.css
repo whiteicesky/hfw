@@ -1,0 +1,76 @@
+h2:not(.cart-word) {}
+
+.products {}
+  
+.product-card {}
+  
+.product-card:hover {}
+  
+.product-image {}
+  
+.product-image img {}
+  
+.product-card:hover .product-image img {}
+  
+.product-name {}
+  
+.product-price {}
+  
+.add-to-cart {}
+  
+.add-to-cart:hover {}
+
+
+
+
+
+--------------------
+
+
+
+
+main {}
+
+h2 {}
+
+form {}
+
+input {}
+
+#message {}
+
+#message2 {}
+
+button {}
+
+button:hover {}
+
+.create-acc-btn {}
+
+.create-acc-btn:hover {}
+
+
+--------------------------
+
+
+.captcha-container {}
+
+.captcha-text {}
+
+.captcha-input {}
+
+.buttons {}
+
+button {}
+
+button:disabled {}
+
+.refresh-btn {}
+
+.submit-btn {}
+
+.refresh-btn:hover {}
+
+.submit-btn:hover {}
+
+.error {}

@@ -1,0 +1,597 @@
+/* GLOBAL SETTINGS */
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+@font-face {
+    font-family: "TTNorms";
+    src: url("../fonts/TTNorms.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "TTNorms", sans-serif;
+    background-color: whitesmoke; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
+button {
+    background-color: #000000; 
+    color: whitesmoke;
+    border: none; 
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer; 
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+#main-nav {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    background-color: whitesmoke;
+    height: 80px;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-holder {
+    order: 1;
+}
+.nav-right {
+    order: 2;
+}
+.nav-right {
+    gap: 1rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+
+}
+
+.notification-container {
+    order: 1;
+}
+.burger  {
+    order:2;
+}
+.logo-holder{
+    min-height: 50px;
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float:left;
+    padding-left: 12px;
+    text-align: left;
+}
+
+.logo-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+}
+
+/* BELL */
+.notification-container {
+    position: relative;
+    display: flex;
+  }
+
+  .notification-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .notification-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .notification-list {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; 
+    z-index: 10;
+  }
+
+  .notification-list.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; 
+  }
+
+  .notification-header {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+
+  .notification-item {
+    padding: 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .notification-item:last-child {
+    border-bottom: none;
+  }
+
+  .notification-item:hover {
+    background-color: #333;
+  }
+
+  .notification-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+/* BURGER MENU */
+.burger {
+    z-index: 1001; 
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    transition: all 0.3s ease;
+}
+
+.burger.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-container {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .menu-container.active {
+    transform: translateX(0); 
+  }
+
+  .menu-list {
+    padding: 30px;
+    margin-top: 3rem;
+  }
+
+  .menu-list a {
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    width: auto;
+  }
+  
+  .menu-list a:hover {
+    background-color: #eee;
+    width: auto;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+/* MAIN CONTENT */
+main {
+    text-align: center; 
+    margin-top: 10rem;
+    width: 100%;
+}
+
+h2 {
+    margin-bottom: 20px; 
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
+}
+
+input {
+    box-sizing: border-box;
+    width: 50%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+#message {
+    visibility: hidden;
+    box-sizing: border-box;
+    width: 50%;
+    opacity: 0;
+    position: fixed; 
+    top: 120px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: red; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    z-index: 1000; 
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#message2 {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed; 
+    top: 100px; 
+    right: 20px;
+    background-color: black; 
+    color: whitesmoke; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    z-index: 1000; 
+    transition: opacity 0.5s ease, visibility 0.5s ease; 
+}
+button {
+    width: 50%;
+    padding: 10px;
+    padding: 10px 20px; 
+    background-color: #000; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+button:hover {
+    background-color: rgb(220, 220, 220);
+  
+}
+.create-acc-btn {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.create-acc-btn:hover {
+    color: rgb(100,100,100);
+    transition: color 0.3s;
+}
+/* FOOTER */
+footer {
+    margin-top: auto; 
+    padding: 20px 0; 
+    text-align: center; 
+    color: rgb(100,100,100);
+}
+/* MEDIA */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .logo-img {
+        max-width: 70%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 75px;
+    }
+
+    .notification-list {
+        top: 40px;
+    }
+    
+    .menu-container a{
+        font-size: 1rem;
+    }
+    
+    .line {
+        height: 4px;
+    }
+    .menu-list {
+        margin-top: 2rem;
+    }
+
+
+    h2{
+        font-size: 1.4rem
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px; 
+        margin-bottom: 12px;
+    }
+    button{
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px;
+        padding: 8px 17px;
+    }
+    .create-acc-btn {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        font-size: 0.7rem;
+    }
+    #message {
+        font-size: 0.9rem;
+    }
+    #message2 {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    .logo-img {
+        max-width: 65%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 70px;
+    }
+
+    .notification-list {
+        top: 40px;
+        width: 200px;
+    }
+    .notification-header {
+        font-size: 14px;
+    }
+    .notification-item {
+        font-size: 12px;
+    }
+    .menu-container a{
+        font-size: 1rem;
+    }
+    
+    .line {
+        height: 4px;
+    }
+    .menu-list {
+        margin-top: 2rem;
+    }
+
+
+    h2{
+        font-size: 1.2rem
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px; 
+        margin-bottom: 12px;
+    }
+    button{
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px;
+        padding: 8px 17px;
+    }
+    .create-acc-btn {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        font-size: 0.65rem;
+    }
+    #message {
+        font-size: 0.8rem;
+    }
+    #message2 {
+        right: 10px;
+        top: 80px;
+        font-size: 0.8rem;
+    }
+}
+@media(max-width: 600px) {
+    .logo-img {
+        max-width: 60%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 65px;
+    }
+
+    .notification-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .notification-list {
+        top: 30px;
+        width: 200px;
+    }
+    .notification-header {
+        font-size: 14px;
+    }
+    .notification-item {
+        font-size: 12px;
+    }
+    .menu-container a{
+        font-size: 0.8rem;
+    }
+    .burger {
+        width: 25px; 
+        height: 15px;
+    }
+
+    .line {
+        height: 3px;
+    }
+    .burger.active .line:nth-child(1) {
+        transform: translateY(4.5px) rotate(45deg);
+    }
+    .menu-list {
+        margin-top: 1.5rem;
+    }
+
+    h2{
+        font-size: 1.2rem
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px; 
+        margin-bottom: 12px;
+    }
+    button{
+        font-size: 0.8rem;
+        width: 45%;
+        padding: 8px;
+        padding: 8px 17px;
+    }
+    .create-acc-btn {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        font-size: 0.65rem;
+    }
+    #message {
+        font-size: 0.8rem;
+    }
+    #message2 {
+        right: 5px;
+        top: 80px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .logo-img {
+        max-width: 50%;
+        height:auto
+    }
+
+    #main-nav {
+        height: 55px;
+    }
+
+    .notification-icon {
+        width: 27px;
+        height: 27px;
+    }
+    .notification-list {
+        top: 27px;
+        width: 150px;
+    }
+    .notification-header {
+        font-size: 12px;
+    }
+    .notification-item {
+        font-size: 10px;
+    }
+    .menu-container a{
+        font-size: 0.7rem;
+    }
+    .burger {
+        width: 25px;
+        height: 15px;
+    }
+    .menu-list {
+        margin-top: 1rem;
+    }
+    h2{
+        font-size: 1.1rem
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        font-size: 0.7rem;
+        width: 45%;
+        padding: 6px; 
+        margin-bottom: 8px;
+    }
+    button{
+        font-size: 0.7rem;
+        width: 45%;
+        padding: 6px;
+        padding: 4px 17px;
+    }
+    .create-acc-btn {
+        font-size: 0.7rem;
+    }
+
+    h5 {
+        font-size: 0.6rem;
+    }
+    #message {
+        font-size: 0.8rem;
+    }
+    #message2 {
+        right: 5px;
+        top: 60px;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oops :(</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Copatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta namne="keywords" content="fashion">
+    <link rel="icon" type="image/png" href="images/favicon5.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "TTNorms", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .message-container {
+            
+            text-align: center;
+            background-color: whitesmoke;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-container h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .message-container p {
+            font-size: 16px;
+            color: #666;
+        }
+        @media screen and (min-width: 320px) and (max-width: 600px){
+            .message-container h1 {
+                font-size: 16px;
+            }
+            .message-container p {
+            font-size: 12px;
+            }
+            .message-container {
+                padding: 10px 20px;
+                width: 300px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Sorry!</h1>
+        <p>Payment is not possible at the moment, please try again later</p>
+    </div>
+</body>

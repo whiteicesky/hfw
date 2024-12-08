@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Create an account</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="fashion">
+    <link rel="icon" type="image/png" href="images/favicon5.png">
+    <link rel="stylesheet" href="styles/logintype.css">
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <nav id="main-nav">
+        <div class="logo-holder">
+            <a href="index.html"><img src="images/high fashion icon2.png" alt="hfw_logo"
+            class="logo-img"></a>
+        </div>
+<!-- NOTIFICATION BELL -->
+<div class="nav-right">
+<div class="notification-container">
+<div class="notification-icon">
+  <img src="images/notifbell.png" alt="Notification Icon">
+</div>
+
+<div class="notification-list">
+  <div class="notification-header">Notifications</div>
+  <div class="notification-item">
+    <a href="https://www.balenciaga.com/en-gb/men/discover/skiwear-collection-unisex">Balenciaga has released a new skiwear collection</a>
+  </div>
+  <div class="notification-item">
+    <a href="https://www.n-nine.com/">Number (N)ine is becoming more popular</a>
+  </div>
+  <div class="notification-item">
+    <a href="https://www.linkedin.com/pulse/intriguing-world-opium-fashion-timeless-influence-modern-oscar-leo-6wyhf">A new style called Opium has come into fashion</a>
+  </div>
+  <div class="notification-item">
+    <a href="https://www.grailed.com/browse/rick-owens-archive">Rick Owens Archive collections are growing in value</a>
+  </div>
+</div>
+</div>
+<script src="scripts/notificationbell.js"></script>
+<!-- BURGER MENU -->
+        <div class="burger" id="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <script src="scripts/burgermenu.js"></script>
+        <div class="menu-container">
+            <div class="menu-list">
+                <a href="login.html">LOGIN</a><br>
+                <a href="morebrands.html">OTHER BRANDS</a><br>
+                <a href="shop.html">SHOP</a><br>
+                <a href="index.html#events">EVENTS</a><br>
+                <a href="index.html#social">SOCIAL MEDIA</a><br>
+                <a href="index.html#contacts">CONTACT</a><br>
+            </div>
+        </div>
+  </div>  
+  </nav>
+</header>
+<!--MAIN-->
+    <main>
+        <h2>New User</h2>
+        <form id="login-form" action="/login" method="POST">
+            <input type="text" id = "email" placeholder="E-mail adress*" required>
+            <input type="password" id = "password" placeholder="Password*" required>
+            <input type="password" id="confirm-password" placeholder="Confirm Password*" required>
+            <input type="text" id = "Name" placeholder="Full Name*" required>
+            <input type="date" id="dob" placeholder="Birthdate*" required>
+            <button type="submit">Create an account</button>
+        </form>
+        <div id="message">Passwords don't match</div>
+        <br>
+        <a class="create-acc-btn" href="login.html">Do you have an account? Log in here</a>
+    </main>
+    <script src="scripts/register.js"></script>
+<!--FOOTER-->
+    <footer>
+        <h5>© HIGH FASHION WORLD 2024</h5>
+    </footer>
+</body>
+</html>
